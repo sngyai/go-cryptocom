@@ -7,8 +7,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/time"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/time"
 )
 
 const (
@@ -75,7 +75,7 @@ type (
 // instrument can be left blank to retrieve tickers for ALL instruments.
 //
 // Method: public/get-ticker
-func (c *client) GetTickers(ctx context.Context, instrument string) ([]Ticker, error) {
+func (c *Client) GetTickers(ctx context.Context, instrument string) ([]Ticker, error) {
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, fmt.Sprintf("%s%s", c.requester.BaseURL, methodGetTicker), nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)

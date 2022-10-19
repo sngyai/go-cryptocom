@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
 )
 
 const (
@@ -46,7 +46,7 @@ type (
 // GetInstruments provides information on all supported instruments (e.g. BTC_USDT).
 //
 // Method: public/get-instruments
-func (c *client) GetInstruments(ctx context.Context) ([]Instrument, error) {
+func (c *Client) GetInstruments(ctx context.Context) ([]Instrument, error) {
 	body := api.Request{
 		ID:     c.idGenerator.Generate(),
 		Method: methodGetInstruments,

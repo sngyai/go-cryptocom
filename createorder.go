@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
 )
 
 const (
@@ -110,7 +110,7 @@ type (
 // The user.order subscription can be used to check when the order is successfully created.
 //
 // Method: private/create-order
-func (c *client) CreateOrder(ctx context.Context, req CreateOrderRequest) (*CreateOrderResult, error) {
+func (c *Client) CreateOrder(ctx context.Context, req CreateOrderRequest) (*CreateOrderResult, error) {
 	var (
 		id        = c.idGenerator.Generate()
 		timestamp = c.clock.Now().UnixMilli()

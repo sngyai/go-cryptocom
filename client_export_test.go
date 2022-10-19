@@ -5,9 +5,9 @@ import (
 
 	"github.com/jonboulle/clockwork"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/errors"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/id"
+	"github.com/sngyai/crypto-dot-com-exchange-go/errors"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/id"
 )
 
 const (
@@ -30,24 +30,24 @@ const (
 	MethodGetTrades         = methodGetTrades
 )
 
-func (c client) BaseURL() string {
+func (c Client) BaseURL() string {
 	return c.requester.BaseURL
 }
 
-func (c client) APIKey() string {
+func (c Client) APIKey() string {
 	return c.apiKey
 }
 
-func (c client) SecretKey() string {
+func (c Client) SecretKey() string {
 	return c.secretKey
 }
 
-func (c client) HTTPClient() *http.Client {
+func (c Client) HTTPClient() *http.Client {
 	return c.requester.Client
 }
 
 func WithIDGenerator(idGenerator id.IDGenerator) ClientOption {
-	return func(c *client) error {
+	return func(c *Client) error {
 		if idGenerator == nil {
 			return errors.InvalidParameterError{Parameter: "idGenerator", Reason: "cannot be empty"}
 		}
@@ -58,7 +58,7 @@ func WithIDGenerator(idGenerator id.IDGenerator) ClientOption {
 }
 
 func WithSignatureGenerator(signatureGenerator auth.SignatureGenerator) ClientOption {
-	return func(c *client) error {
+	return func(c *Client) error {
 		if signatureGenerator == nil {
 			return errors.InvalidParameterError{Parameter: "signatureGenerator", Reason: "cannot be empty"}
 		}
@@ -69,7 +69,7 @@ func WithSignatureGenerator(signatureGenerator auth.SignatureGenerator) ClientOp
 }
 
 func WithClock(clock clockwork.Clock) ClientOption {
-	return func(c *client) error {
+	return func(c *Client) error {
 		if clock == nil {
 			return errors.InvalidParameterError{Parameter: "clock", Reason: "cannot be empty"}
 		}
@@ -80,7 +80,7 @@ func WithClock(clock clockwork.Clock) ClientOption {
 }
 
 func WithBaseURL(url string) ClientOption {
-	return func(c *client) error {
+	return func(c *Client) error {
 		if url == "" {
 			return errors.InvalidParameterError{Parameter: "url", Reason: "cannot be empty"}
 		}

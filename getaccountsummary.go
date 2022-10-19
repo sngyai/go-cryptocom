@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
 )
 
 const (
@@ -47,7 +47,7 @@ type (
 // currency can be left blank to retrieve balances for ALL tokens.
 //
 // Method: private/get-account-summary
-func (c *client) GetAccountSummary(ctx context.Context, currency string) ([]Account, error) {
+func (c *Client) GetAccountSummary(ctx context.Context, currency string) ([]Account, error) {
 	var (
 		id        = c.idGenerator.Generate()
 		timestamp = c.clock.Now().UnixMilli()

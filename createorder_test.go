@@ -15,12 +15,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	cdcexchange "github.com/cshep4/crypto-dot-com-exchange-go"
-	cdcerrors "github.com/cshep4/crypto-dot-com-exchange-go/errors"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
-	id_mocks "github.com/cshep4/crypto-dot-com-exchange-go/internal/mocks/id"
-	signature_mocks "github.com/cshep4/crypto-dot-com-exchange-go/internal/mocks/signature"
+	cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
+	cdcerrors "github.com/sngyai/crypto-dot-com-exchange-go/errors"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
+	id_mocks "github.com/sngyai/crypto-dot-com-exchange-go/internal/mocks/id"
+	signature_mocks "github.com/sngyai/crypto-dot-com-exchange-go/internal/mocks/signature"
 )
 
 func TestClient_CreateOrder_Error(t *testing.T) {
@@ -135,7 +135,7 @@ func TestClient_CreateOrder_Success(t *testing.T) {
 		price        = 1.234
 		quantity     = 5.678
 		notional     = 9.012
-		clientOID    = "some client oid"
+		clientOID    = "some Client oid"
 		timeInForce  = cdcexchange.TimeInForceGoodTilCancelled
 		execInst     = cdcexchange.ExecInstPostOnly
 		triggerPrice = 3.456

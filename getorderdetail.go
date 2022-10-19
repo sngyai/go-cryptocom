@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/errors"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/time"
+	"github.com/sngyai/crypto-dot-com-exchange-go/errors"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/time"
 )
 
 const (
@@ -57,7 +57,7 @@ type (
 		FeeCurrency string `json:"fee_currency"`
 		// OrderID is the unique identifier for the order.
 		OrderID string `json:"order_id"`
-		// ClientOrderID is the client order id (if provided in request when creating the order).
+		// ClientOrderID is the Client order id (if provided in request when creating the order).
 		ClientOrderID string `json:"client_order_id"`
 		// LiquidityIndicator is the liquidity indicator for the trade (MAKER/TAKER).
 		LiquidityIndicator LiquidityIndicator `json:"liquidity_indicator"`
@@ -67,7 +67,7 @@ type (
 // GetOrderDetail gets details of an order for a particular order ID.
 //
 // Method: private/get-order-detail
-func (c *client) GetOrderDetail(ctx context.Context, orderID string) (*GetOrderDetailResult, error) {
+func (c *Client) GetOrderDetail(ctx context.Context, orderID string) (*GetOrderDetailResult, error) {
 	if orderID == "" {
 		return nil, errors.InvalidParameterError{Parameter: "orderID", Reason: "cannot be empty"}
 	}

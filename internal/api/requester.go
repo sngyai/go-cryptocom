@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/errors"
+	"github.com/sngyai/crypto-dot-com-exchange-go/errors"
 )
 
 type Requester struct {

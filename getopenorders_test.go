@@ -15,13 +15,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	cdcexchange "github.com/cshep4/crypto-dot-com-exchange-go"
-	cdcerrors "github.com/cshep4/crypto-dot-com-exchange-go/errors"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
-	id_mocks "github.com/cshep4/crypto-dot-com-exchange-go/internal/mocks/id"
-	signature_mocks "github.com/cshep4/crypto-dot-com-exchange-go/internal/mocks/signature"
-	cdctime "github.com/cshep4/crypto-dot-com-exchange-go/internal/time"
+	cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
+	cdcerrors "github.com/sngyai/crypto-dot-com-exchange-go/errors"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
+	id_mocks "github.com/sngyai/crypto-dot-com-exchange-go/internal/mocks/id"
+	signature_mocks "github.com/sngyai/crypto-dot-com-exchange-go/internal/mocks/signature"
+	cdctime "github.com/sngyai/crypto-dot-com-exchange-go/internal/time"
 )
 
 func TestClient_GetOpenOrders_Error(t *testing.T) {
@@ -161,7 +161,7 @@ func TestClient_GetOpenOrders_Success(t *testing.T) {
 		signature = "some signature"
 
 		instrument = "some instrument"
-		clientOID  = "some client oid"
+		clientOID  = "some Client oid"
 	)
 	now := time.Now().Round(time.Second)
 
@@ -213,7 +213,7 @@ func TestClient_GetOpenOrders_Success(t *testing.T) {
 										"price":0,
 										"quantity":0,
 										"order_id":"",
-										"client_oid":"some client oid",
+										"client_oid":"some Client oid",
 										"create_time":%d,
 										"update_time":%d
 									}
@@ -272,7 +272,7 @@ func TestClient_GetOpenOrders_Success(t *testing.T) {
 										"price":0,
 										"quantity":0,
 										"order_id":"",
-										"client_oid":"some client oid",
+										"client_oid":"some Client oid",
 										"create_time":%d,
 										"update_time":%d
 									}

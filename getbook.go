@@ -7,8 +7,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/time"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/time"
 )
 
 const (
@@ -41,7 +41,7 @@ type (
 // GetBook fetches the public order book for a particular instrument and depth.
 //
 // Method: public/get-book
-func (c *client) GetBook(ctx context.Context, instrument string, depth int) (*BookResult, error) {
+func (c *Client) GetBook(ctx context.Context, instrument string, depth int) (*BookResult, error) {
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, fmt.Sprintf("%s%s", c.requester.BaseURL, methodGetBook), nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)

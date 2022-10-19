@@ -15,12 +15,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	cdcexchange "github.com/cshep4/crypto-dot-com-exchange-go"
-	cdcerrors "github.com/cshep4/crypto-dot-com-exchange-go/errors"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
-	id_mocks "github.com/cshep4/crypto-dot-com-exchange-go/internal/mocks/id"
-	signature_mocks "github.com/cshep4/crypto-dot-com-exchange-go/internal/mocks/signature"
+	cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
+	cdcerrors "github.com/sngyai/crypto-dot-com-exchange-go/errors"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
+	id_mocks "github.com/sngyai/crypto-dot-com-exchange-go/internal/mocks/id"
+	signature_mocks "github.com/sngyai/crypto-dot-com-exchange-go/internal/mocks/signature"
 )
 
 func TestClient_CancelOrder_Error(t *testing.T) {

@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/errors"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
+	"github.com/sngyai/crypto-dot-com-exchange-go/errors"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
 )
 
 const methodCancelAllOrders = "private/cancel-all-orders"
@@ -24,7 +24,7 @@ type CancelAllOrdersResponse struct {
 // The user.order subscription can be used to check when the order is successfully cancelled.
 //
 // Method: private/cancel-all-orders
-func (c *client) CancelAllOrders(ctx context.Context, instrumentName string) error {
+func (c *Client) CancelAllOrders(ctx context.Context, instrumentName string) error {
 	if instrumentName == "" {
 		return errors.InvalidParameterError{Parameter: "instrumentName", Reason: "cannot be empty"}
 	}

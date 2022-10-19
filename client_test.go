@@ -12,8 +12,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	cdcexchange "github.com/cshep4/crypto-dot-com-exchange-go"
-	"github.com/cshep4/crypto-dot-com-exchange-go/errors"
+	cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
+	"github.com/sngyai/crypto-dot-com-exchange-go/errors"
 )
 
 type roundTripper struct {
@@ -94,7 +94,7 @@ func TestNew_Success(t *testing.T) {
 		expectedBaseURL string
 	}{
 		{
-			name: "successfully creates UAT client",
+			name: "successfully creates UAT Client",
 			args: args{
 				apiKey:    "api key",
 				secretKey: "secret key",
@@ -103,7 +103,7 @@ func TestNew_Success(t *testing.T) {
 			expectedBaseURL: cdcexchange.UATSandboxBaseURL,
 		},
 		{
-			name: "successfully creates production client",
+			name: "successfully creates production Client",
 			args: args{
 				apiKey:    "api key",
 				secretKey: "secret key",
@@ -111,7 +111,7 @@ func TestNew_Success(t *testing.T) {
 			expectedBaseURL: cdcexchange.ProductionBaseURL,
 		},
 		{
-			name: "successfully creates client with custom http client",
+			name: "successfully creates Client with custom http Client",
 			args: args{
 				apiKey:     "api key",
 				secretKey:  "secret key",
@@ -192,7 +192,7 @@ func TestClient_UpdateConfig_Success(t *testing.T) {
 		expectedBaseURL string
 	}{
 		{
-			name: "successfully updates UAT client",
+			name: "successfully updates UAT Client",
 			args: args{
 				apiKey:    "api key",
 				secretKey: "secret key",
@@ -201,7 +201,7 @@ func TestClient_UpdateConfig_Success(t *testing.T) {
 			expectedBaseURL: cdcexchange.UATSandboxBaseURL,
 		},
 		{
-			name: "successfully updates production client",
+			name: "successfully updates production Client",
 			args: args{
 				apiKey:    "api key",
 				secretKey: "secret key",
@@ -210,7 +210,7 @@ func TestClient_UpdateConfig_Success(t *testing.T) {
 			expectedBaseURL: cdcexchange.ProductionBaseURL,
 		},
 		{
-			name: "successfully updates production client",
+			name: "successfully updates production Client",
 			args: args{
 				apiKey:    "api key",
 				secretKey: "secret key",
@@ -218,7 +218,7 @@ func TestClient_UpdateConfig_Success(t *testing.T) {
 			expectedBaseURL: cdcexchange.ProductionBaseURL,
 		},
 		{
-			name: "successfully updates http client",
+			name: "successfully updates http Client",
 			args: args{
 				apiKey:     "api key",
 				secretKey:  "secret key",

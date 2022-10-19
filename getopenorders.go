@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/errors"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/time"
+	"github.com/sngyai/crypto-dot-com-exchange-go/errors"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/time"
 )
 
 const (
@@ -110,7 +110,7 @@ type (
 // req.InstrumentName can be left blank to get open orders for all instruments.
 //
 // Method: private/get-open-orders
-func (c *client) GetOpenOrders(ctx context.Context, req GetOpenOrdersRequest) (*GetOpenOrdersResult, error) {
+func (c *Client) GetOpenOrders(ctx context.Context, req GetOpenOrdersRequest) (*GetOpenOrdersResult, error) {
 	if req.PageSize < 0 {
 		return nil, errors.InvalidParameterError{Parameter: "req.PageSize", Reason: "cannot be less than 0"}
 	}

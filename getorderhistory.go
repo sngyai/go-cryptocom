@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/errors"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
+	"github.com/sngyai/crypto-dot-com-exchange-go/errors"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
 )
 
 const (
@@ -65,7 +65,7 @@ type (
 // req.InstrumentName can be left blank to get orders for all instruments.
 //
 // Method: private/get-order-history
-func (c *client) GetOrderHistory(ctx context.Context, req GetOrderHistoryRequest) ([]Order, error) {
+func (c *Client) GetOrderHistory(ctx context.Context, req GetOrderHistoryRequest) ([]Order, error) {
 	if req.PageSize < 0 {
 		return nil, errors.InvalidParameterError{Parameter: "req.PageSize", Reason: "cannot be less than 0"}
 	}

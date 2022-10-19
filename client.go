@@ -6,10 +6,10 @@ import (
 
 	"github.com/jonboulle/clockwork"
 
-	"github.com/cshep4/crypto-dot-com-exchange-go/errors"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/api"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
-	"github.com/cshep4/crypto-dot-com-exchange-go/internal/id"
+	"github.com/sngyai/crypto-dot-com-exchange-go/errors"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
+	"github.com/sngyai/crypto-dot-com-exchange-go/internal/id"
 )
 
 const (
@@ -21,9 +21,9 @@ const (
 )
 
 type (
-	// CryptoDotComExchange is a Crypto.com Exchange client for all available APIs.
+	// CryptoDotComExchange is a Crypto.com Exchange Client for all available APIs.
 	CryptoDotComExchange interface {
-		// UpdateConfig can be used to update the configuration of the client object.
+		// UpdateConfig can be used to update the configuration of the Client object.
 		// (e.g. change api key, secret key, environment, etc).
 		UpdateConfig(apiKey string, secretKey string, opts ...ClientOption) error
 		CommonAPI
@@ -34,7 +34,7 @@ type (
 		Websocket
 	}
 
-	// CommonAPI is a Crypto.com Exchange client for Common API.
+	// CommonAPI is a Crypto.com Exchange Client for Common API.
 	CommonAPI interface {
 		// GetInstruments provides information on all supported instruments (e.g. BTC_USDT).
 		//
@@ -52,7 +52,7 @@ type (
 		GetTickers(ctx context.Context, instrument string) ([]Ticker, error)
 	}
 
-	// SpotTradingAPI is a Crypto.com Exchange client for Spot Trading API.
+	// SpotTradingAPI is a Crypto.com Exchange Client for Spot Trading API.
 	SpotTradingAPI interface {
 		// GetAccountSummary returns the account balance of a user for a particular token.
 		//
@@ -116,30 +116,30 @@ type (
 		GetTrades(ctx context.Context, req GetTradesRequest) ([]Trade, error)
 	}
 
-	// MarginTradingAPI is a Crypto.com Exchange client for Margin Trading API.
+	// MarginTradingAPI is a Crypto.com Exchange Client for Margin Trading API.
 	MarginTradingAPI interface {
 	}
 
-	// DerivativesTransferAPI is a Crypto.com Exchange client for Derivatives Transfer API.
+	// DerivativesTransferAPI is a Crypto.com Exchange Client for Derivatives Transfer API.
 	DerivativesTransferAPI interface {
 	}
 
-	// SubAccountAPI is a Crypto.com Exchange client for Sub-account API.
+	// SubAccountAPI is a Crypto.com Exchange Client for Sub-account API.
 	SubAccountAPI interface {
 	}
 
-	// Websocket is a Crypto.com Exchange client websocket methods & channels.
+	// Websocket is a Crypto.com Exchange Client websocket methods & channels.
 	Websocket interface {
 	}
 
 	// Environment represents the environment against which calls are made.
 	Environment string
 
-	// ClientOption represents optional configurations for the client.
-	ClientOption func(*client) error
+	// ClientOption represents optional configurations for the Client.
+	ClientOption func(*Client) error
 
-	// client is a concrete implementation of CryptoDotComExchange.
-	client struct {
+	// Client is a concrete implementation of CryptoDotComExchange.
+	Client struct {
 		apiKey             string
 		secretKey          string
 		clock              clockwork.Clock
@@ -149,9 +149,9 @@ type (
 	}
 )
 
-// New will construct a new instance of client.
-func New(apiKey string, secretKey string, opts ...ClientOption) (*client, error) {
-	c := &client{
+// New will construct a new instance of Client.
+func New(apiKey string, secretKey string, opts ...ClientOption) (*Client, error) {
+	c := &Client{
 		idGenerator:        &id.Generator{},
 		signatureGenerator: &auth.Generator{},
 		clock:              clockwork.NewRealClock(),
@@ -168,9 +168,9 @@ func New(apiKey string, secretKey string, opts ...ClientOption) (*client, error)
 	return c, nil
 }
 
-// UpdateConfig can be used to update the configuration of the client object.
+// UpdateConfig can be used to update the configuration of the Client object.
 // (e.g. change api key, secret key, environment, etc).
-func (c *client) UpdateConfig(apiKey string, secretKey string, opts ...ClientOption) error {
+func (c *Client) UpdateConfig(apiKey string, secretKey string, opts ...ClientOption) error {
 	switch {
 	case apiKey == "":
 		return errors.InvalidParameterError{Parameter: "apiKey", Reason: "cannot be empty"}
@@ -190,27 +190,27 @@ func (c *client) UpdateConfig(apiKey string, secretKey string, opts ...ClientOpt
 	return nil
 }
 
-// WithProductionEnvironment will initialise the client to make requests against the production environment.
+// WithProductionEnvironment will initialise the Client to make requests against the production environment.
 // This is the default setting.
 func WithProductionEnvironment() ClientOption {
-	return func(c *client) error {
+	return func(c *Client) error {
 		c.requester.BaseURL = productionBaseURL
 		return nil
 	}
 }
 
-// WithUATEnvironment will initialise the client to make requests against the UAT sandbox environment.
+// WithUATEnvironment will initialise the Client to make requests against the UAT sandbox environment.
 func WithUATEnvironment() ClientOption {
-	return func(c *client) error {
+	return func(c *Client) error {
 		c.requester.BaseURL = uatSandboxBaseURL
 		return nil
 	}
 }
 
-// WithHTTPClient will allow the client to be initialised with a custom http client.
+// WithHTTPClient will allow the Client to be initialised with a custom http Client.
 // Can be used to create custom timeouts, enable tracing, etc.
 func WithHTTPClient(httpClient *http.Client) ClientOption {
-	return func(c *client) error {
+	return func(c *Client) error {
 		if httpClient == nil {
 			return errors.InvalidParameterError{Parameter: "httpClient", Reason: "cannot be empty"}
 		}

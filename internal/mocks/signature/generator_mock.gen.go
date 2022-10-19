@@ -5,8 +5,8 @@
 package signature_mocks
 
 import (
-	auth "github.com/cshep4/crypto-dot-com-exchange-go/internal/auth"
 	gomock "github.com/golang/mock/gomock"
+	auth "github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
 	reflect "reflect"
 )
 

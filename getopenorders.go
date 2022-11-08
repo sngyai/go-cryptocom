@@ -49,7 +49,7 @@ type (
 	// GetOpenOrdersResult is the result returned from the private/get-open-orders API.
 	GetOpenOrdersResult struct {
 		// Count is the total count of orders.
-		Count int `json:"order_id"`
+		Count int `json:"count"`
 		// OrderList is the array of open orders.
 		OrderList []Order `json:"order_list"`
 	}

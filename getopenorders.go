@@ -60,7 +60,7 @@ type (
 		// Status is the status of the order, can be ACTIVE, CANCELED, FILLED, REJECTED or EXPIRED.
 		Status OrderStatus `json:"status"`
 		// Reason is the reason code for rejected orders (see "Response and Reason Codes").
-		Reason string `json:"reason"`
+		Reason int64 `json:"reason"`
 		// Side represents whether the order is buy or sell.
 		Side OrderSide `json:"side"`
 		// Price is the price specified in the order.

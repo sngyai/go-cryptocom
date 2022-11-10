@@ -105,23 +105,13 @@ func (c *Client) GetTickers(ctx context.Context, instrument string) ([]Ticker, e
 		code    json.Number
 	)
 
-	if instrument == "" {
-		var tickerResponse TickerResponse
-		if err := json.Unmarshal(resBytes, &tickerResponse); err != nil {
-			return nil, fmt.Errorf("failed to unmarshal response body: %w", err)
-		}
-
-		tickers = tickerResponse.Result.Data
-		code = tickerResponse.Code
-	} else {
-		var tickerResponse SingleTickerResponse
-		if err := json.Unmarshal(resBytes, &tickerResponse); err != nil {
-			return nil, fmt.Errorf("failed to unmarshal response body: %w", err)
-		}
-
-		tickers = []Ticker{tickerResponse.Result.Data}
-		code = tickerResponse.Code
+	var tickerResponse TickerResponse
+	if err := json.Unmarshal(resBytes, &tickerResponse); err != nil {
+		return nil, fmt.Errorf("failed to unmarshal response body: %w", err)
 	}
+
+	tickers = tickerResponse.Result.Data
+	code = tickerResponse.Code
 
 	if err := c.requester.CheckErrorResponse(res.StatusCode, code); err != nil {
 		return nil, fmt.Errorf("error received in response: %w", err)

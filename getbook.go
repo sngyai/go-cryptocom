@@ -25,14 +25,20 @@ type (
 		Result BookResult `json:"result"`
 	}
 
-	// BookResult is the result returned from the public/get-book API.
 	BookResult struct {
+		Depth          int        `json:"depth"`
+		Data           []BookData `json:"data"`
+		InstrumentName string     `json:"instrument_name"`
+	}
+
+	// BookData is the result returned from the public/get-book API.
+	BookData struct {
 		// Bids is an array of bids.
 		// [0] = Price, [1] = Quantity, [2] = Number of Orders.
-		Bids [][]float64 `json:"bids"`
+		Bids [][]string `json:"bids"`
 		// Asks is an array of asks.
 		// [0] = Price, [1] = Quantity, [2] = Number of Orders.
-		Asks [][]float64 `json:"asks"`
+		Asks [][]string `json:"asks"`
 		// Timestamp is the timestamp of the data.
 		Timestamp time.Time `json:"t"`
 	}

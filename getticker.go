@@ -36,9 +36,9 @@ type (
 		// Instrument is the instrument name (e.g. BTC_USDT, ETH_CRO, etc).
 		Instrument string `json:"i"`
 		// BidPrice is the current best bid price, 0 if there aren't any bids.
-		BidPrice float64 `json:"b"`
+		BidPrice float64 `json:"b,string"`
 		// AskPrice is the current best ask price, 0 if there aren't any asks.
-		AskPrice float64 `json:"k"`
+		AskPrice float64 `json:"k,string"`
 		// LatestTradePrice is the price of the latest trade, 0 if there weren't any trades.
 		LatestTradePrice float64 `json:"a,string"`
 		// Timestamp is the timestamp of the data.

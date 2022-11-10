@@ -12,8 +12,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
-	"github.com/sngyai/crypto-dot-com-exchange-go/errors"
+	cdcexchange "github.com/sngyai/go-cryptocom"
+	"github.com/sngyai/go-cryptocom/errors"
 )
 
 type roundTripper struct {

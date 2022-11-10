@@ -1,7 +1,7 @@
 linters-settings:
   goimports:
     # Separate internal packages from external
-    local-prefixes: github.com/cshep4/crypto-dot-com-exchange-go
+    local-prefixes: github.com/cshep4/go-cryptocom
 
 linters:
   # Enable extra linters besides the default ones

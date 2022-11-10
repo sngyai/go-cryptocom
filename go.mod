@@ -1,4 +1,4 @@
-module github.com/sngyai/crypto-dot-com-exchange-go
+module github.com/sngyai/go-cryptocom
 
 go 1.17
 

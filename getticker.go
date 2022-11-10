@@ -7,8 +7,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
-	"github.com/sngyai/crypto-dot-com-exchange-go/internal/time"
+	"github.com/sngyai/go-cryptocom/internal/api"
+	"github.com/sngyai/go-cryptocom/internal/time"
 )
 
 const (

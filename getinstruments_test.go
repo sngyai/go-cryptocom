@@ -15,10 +15,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
-	cdcerrors "github.com/sngyai/crypto-dot-com-exchange-go/errors"
-	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
-	id_mocks "github.com/sngyai/crypto-dot-com-exchange-go/internal/mocks/id"
+	"github.com/sngyai/go-cryptocom/internal/api"
+	cdcexchange "github.com/sngyai/go-cryptocom"
+	cdcerrors "github.com/sngyai/go-cryptocom/errors"
+	id_mocks "github.com/sngyai/go-cryptocom/internal/mocks/id"
 )
 
 func TestClient_GetInstruments_Error(t *testing.T) {

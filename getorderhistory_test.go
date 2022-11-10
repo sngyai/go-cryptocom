@@ -15,13 +15,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
-	cdcerrors "github.com/sngyai/crypto-dot-com-exchange-go/errors"
-	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
-	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
-	id_mocks "github.com/sngyai/crypto-dot-com-exchange-go/internal/mocks/id"
-	signature_mocks "github.com/sngyai/crypto-dot-com-exchange-go/internal/mocks/signature"
-	cdctime "github.com/sngyai/crypto-dot-com-exchange-go/internal/time"
+	"github.com/sngyai/go-cryptocom/internal/api"
+	"github.com/sngyai/go-cryptocom/internal/auth"
+	cdcexchange "github.com/sngyai/go-cryptocom"
+	cdcerrors "github.com/sngyai/go-cryptocom/errors"
+	id_mocks "github.com/sngyai/go-cryptocom/internal/mocks/id"
+	signature_mocks "github.com/sngyai/go-cryptocom/internal/mocks/signature"
+	cdctime "github.com/sngyai/go-cryptocom/internal/time"
 )
 
 func TestClient_GetOrderHistory_Error(t *testing.T) {

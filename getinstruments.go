@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
+	"github.com/sngyai/go-cryptocom/internal/api"
 )
 
 const (

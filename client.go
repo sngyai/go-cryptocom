@@ -6,10 +6,10 @@ import (
 
 	"github.com/jonboulle/clockwork"
 
-	"github.com/sngyai/crypto-dot-com-exchange-go/errors"
-	"github.com/sngyai/crypto-dot-com-exchange-go/internal/api"
-	"github.com/sngyai/crypto-dot-com-exchange-go/internal/auth"
-	"github.com/sngyai/crypto-dot-com-exchange-go/internal/id"
+	"github.com/sngyai/go-cryptocom/errors"
+	"github.com/sngyai/go-cryptocom/internal/api"
+	"github.com/sngyai/go-cryptocom/internal/auth"
+	"github.com/sngyai/go-cryptocom/internal/id"
 )
 
 const (

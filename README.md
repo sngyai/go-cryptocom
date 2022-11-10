@@ -25,7 +25,7 @@ Go client for the [Crypto.com Spot Exchange REST API](https://exchange-docs.cryp
 
 To import the package, run:
 
-    go get github.com/cshep4/crypto-dot-com-exchange-go
+    go get github.com/cshep4/go-cryptocom
 
 ## Setup
 
@@ -33,7 +33,7 @@ An instance of the client can be created like this:
 
 ```go
 import (
-    cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
+    cdcexchange "github.com/sngyai/go-cryptocom"
 )
 
 client, err := cdcexchange.New("<api_key>", "<secret_key>")
@@ -56,7 +56,7 @@ The client can be configured to make requests against the UAT Sandbox environmen
 
 ```go
 import (
-    cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
+    cdcexchange "github.com/sngyai/go-cryptocom"
 )
 
 client, err := cdcexchange.New("<api_key>", "<secret_key>", 
@@ -73,7 +73,7 @@ The client can be configured to make requests against the Production environment
 
 ```go
 import (
-    cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
+    cdcexchange "github.com/sngyai/go-cryptocom"
 )
 
 client, err := cdcexchange.New("<api_key>", "<secret_key>", 
@@ -92,7 +92,7 @@ The client can be configured to use a custom HTTP client using the `WithHTTPClie
 import (
     "net/http"
 
-    cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
+    cdcexchange "github.com/sngyai/go-cryptocom"
 )
 
 client, err := cdcexchange.New("<api_key>", "<secret_key>",
@@ -348,8 +348,8 @@ Custom error handling on client errors can be implemented like so:
 import (
     "errors"
 
-    cdcerrors "github.com/sngyai/crypto-dot-com-exchange-go/errors"
-    cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
+    cdcerrors "github.com/sngyai/go-cryptocom/errors"
+    cdcexchange "github.com/sngyai/go-cryptocom"
 )
 
 ...
@@ -378,8 +378,8 @@ import (
     "errors"
     "log"
     
-    cdcerrors "github.com/sngyai/crypto-dot-com-exchange-go/errors"
-    cdcexchange "github.com/sngyai/crypto-dot-com-exchange-go"
+    cdcerrors "github.com/sngyai/go-cryptocom/errors"
+    cdcexchange "github.com/sngyai/go-cryptocom"
 )
 
 ...

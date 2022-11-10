@@ -2,6 +2,7 @@ package cdcexchange_test
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"net/http"
@@ -209,4 +210,12 @@ func TestClient_GetTickers_Success(t *testing.T) {
 			assert.Equal(t, tt.expectedResult, tickers)
 		})
 	}
+}
+
+func TestClient_GetTickers(t *testing.T) {
+	s := `{"id":-1,"method":"public/get-tickers","code":0,"result":{"data":[{"i":"BTC_USDT","h":"19600.11","l":"18000.00","a":"19600.11","v":"0.0019","vv":"36.85","c":"0.0889","b":null,"k":null,"t":1668066540018}]}}`
+	var ticker cdcexchange.TickerResponse
+	err := json.Unmarshal([]byte(s), &ticker)
+	assert.Nil(t, err)
+	fmt.Printf("unmarshal succeed: %v", ticker)
 }

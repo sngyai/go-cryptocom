@@ -31,22 +31,6 @@ type (
 		Data []Ticker `json:"data"`
 	}
 
-	// SingleTickerResponse is the base response returned from the public/get-ticker API
-	// when an instrument is specified.
-	SingleTickerResponse struct {
-		// api.BaseResponse is the common response fields.
-		api.BaseResponse
-		// Result is the response attributes of the endpoint.
-		Result SingleTickerResult `json:"result"`
-	}
-
-	// SingleTickerResult is the result returned from the public/get-ticker API
-	// when an instrument is specified.
-	SingleTickerResult struct {
-		// Data is the returned ticker data for specified instrument.
-		Data Ticker `json:"data"`
-	}
-
 	// Ticker represents ticker details of a specific currency pair.
 	Ticker struct {
 		// Instrument is the instrument name (e.g. BTC_USDT, ETH_CRO, etc).
@@ -56,17 +40,17 @@ type (
 		// AskPrice is the current best ask price, 0 if there aren't any asks.
 		AskPrice float64 `json:"k"`
 		// LatestTradePrice is the price of the latest trade, 0 if there weren't any trades.
-		LatestTradePrice float64 `json:"a"`
+		LatestTradePrice float64 `json:"a,string"`
 		// Timestamp is the timestamp of the data.
 		Timestamp time.Time `json:"t"`
 		// Volume24H is the total 24h traded volume.
-		Volume24H float64 `json:"v"`
+		Volume24H float64 `json:"v,string"`
 		// PriceHigh24h is the price of the 24h highest trade, 0 if there weren't any trades.
-		PriceHigh24h float64 `json:"h"`
+		PriceHigh24h float64 `json:"h,string"`
 		// PriceLow24h is the price of the 24h lowest trade, 0 if there weren't any trades.
-		PriceLow24h float64 `json:"l"`
+		PriceLow24h float64 `json:"l,string"`
 		// PriceChange24h is the 24-hour price change, 0 if there weren't any trades.
-		PriceChange24h float64 `json:"c"`
+		PriceChange24h float64 `json:"c,string"`
 	}
 )
 

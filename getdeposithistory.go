@@ -64,7 +64,7 @@ type (
 		CreateTime int64   `json:"create_time"`
 		Id         string  `json:"id"`
 		UpdateTime int64   `json:"update_time"`
-		Amount     int     `json:"amount"`
+		Amount     float64 `json:"amount"`
 		Address    string  `json:"address"`
 		Status     string  `json:"status"`
 	}

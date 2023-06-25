@@ -5,7 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 
 	"github.com/sngyai/go-cryptocom/errors"
@@ -42,13 +42,13 @@ func (r Requester) doRequest(ctx context.Context, httpMethod string, body Reques
 	}
 	defer res.Body.Close()
 
-	resBytes, err := ioutil.ReadAll(res.Body)
+	resBytes, err := io.ReadAll(res.Body)
 	if err != nil {
 		return 0, fmt.Errorf("failed to read response body: %w", err)
 	}
 
 	if err := json.Unmarshal(resBytes, &response); err != nil {
-		return 0, fmt.Errorf("failed to unmarshal response body: %w", err)
+		return 0, fmt.Errorf("failed to unmarshal response body: %s, error: %w", string(resBytes), err)
 	}
 
 	return res.StatusCode, nil

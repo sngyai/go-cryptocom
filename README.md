@@ -164,10 +164,10 @@ type CommonAPI interface {
 | public/get-trades                | ⚠️ |
 | private/set-cancel-on-disconnect | ⚠️ |
 | private/get-cancel-on-disconnect | ⚠️ |
-| private/create-withdrawal        | ⚠️ |
-| private/get-withdrawal-history   | ⚠️ |
-| private/get-deposit-history      | ⚠️ |
-| private/get-deposit-address      | ⚠️ |
+| private/create-withdrawal        | ✅ |
+| private/get-withdrawal-history   | ✅ |
+| private/get-deposit-history      | ✅ |
+| private/get-deposit-address      | ✅ |
 
 ### Spot Trading API
 

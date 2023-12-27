@@ -15,9 +15,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/sngyai/go-cryptocom/internal/api"
 	cdcexchange "github.com/sngyai/go-cryptocom"
 	cdcerrors "github.com/sngyai/go-cryptocom/errors"
+	"github.com/sngyai/go-cryptocom/internal/api"
 	id_mocks "github.com/sngyai/go-cryptocom/internal/mocks/id"
 )
 
@@ -175,4 +175,19 @@ func TestClient_GetIstruments_Success(t *testing.T) {
 			assert.Equal(t, tt.expectedResult, instruments)
 		})
 	}
+}
+
+func TestClient_GetInstruments(t *testing.T) {
+	c, err := cdcexchange.New("apiKey", "secretKey", []cdcexchange.ClientOption{}...)
+	if err != nil {
+		t.Fatal(err)
+	}
+	got, err := c.GetInstruments(context.Background())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got) == 0 {
+		t.Fatal("no instruments")
+	}
+	t.Logf("got instruments: %v ", got)
 }

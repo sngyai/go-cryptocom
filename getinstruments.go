@@ -40,6 +40,16 @@ type (
 		QuantityDecimals int `json:"quantity_decimals"`
 		// MarginTradingEnabled represents whether margin trading is enabled for the instrument.
 		MarginTradingEnabled bool `json:"margin_trading_enabled"`
+		// MinimumOrderSize represents the minimum order size for the instrument.
+		MarginTradingEnabled5X  bool   `json:"margin_trading_enabled_5x"`
+		MarginTradingEnabled10X bool   `json:"margin_trading_enabled_10x"`
+		MaxQuantity             string `json:"max_quantity"`
+		MinQuantity             string `json:"min_quantity"`
+		MaxPrice                string `json:"max_price"`
+		MinPrice                string `json:"min_price"`
+		LastUpdateDate          int64  `json:"last_update_date"`
+		QuantityTickSize        string `json:"quantity_tick_size"`
+		PriceTickSize           string `json:"price_tick_size"`
 	}
 )
 

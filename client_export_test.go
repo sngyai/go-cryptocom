@@ -30,19 +30,19 @@ const (
 	MethodGetTrades         = methodGetTrades
 )
 
-func (c Client) BaseURL() string {
+func (c *Client) BaseURL() string {
 	return c.requester.BaseURL
 }
 
-func (c Client) APIKey() string {
+func (c *Client) APIKey() string {
 	return c.apiKey
 }
 
-func (c Client) SecretKey() string {
+func (c *Client) SecretKey() string {
 	return c.secretKey
 }
 
-func (c Client) HTTPClient() *http.Client {
+func (c *Client) HTTPClient() *http.Client {
 	return c.requester.Client
 }
 

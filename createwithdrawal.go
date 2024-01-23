@@ -15,7 +15,7 @@ const (
 type (
 	// CreateWithdrawalRequest is the request params sent for the private/create-withdrawal API.
 	//
-	// The maximum duration between Start and End is 24 hours.
+	// The maximum duration between Start and EndTime is 24 hours.
 	//
 	// You will receive an INVALID_DATE_RANGE error if the difference exceeds the maximum duration.
 	//
@@ -59,7 +59,7 @@ type (
 // Pagination is handled using page size (Default: 20, Max: 200) & number (0-based).
 // If paging is used, enumerate each page (starting with 0) until an empty withdrawal_list array appears in the response.
 //
-// req.InstrumentName can be left blank to get withdrawals for all instruments.
+// req.Timeframe can be left blank to get withdrawals for all instruments.
 //
 // Method: private/create-withdrawal
 func (c *Client) CreateWithdrawal(ctx context.Context, req CreateWithdrawalRequest) (*CreateWithdrawalResult, error) {

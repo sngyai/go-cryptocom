@@ -107,15 +107,15 @@ type (
 //
 // Pagination is handled using page size (Default: 20, Max: 200) & number (0-based).
 //
-// req.InstrumentName can be left blank to get open orders for all instruments.
+// req.Timeframe can be left blank to get open orders for all instruments.
 //
 // Method: private/get-open-orders
 func (c *Client) GetOpenOrders(ctx context.Context, req GetOpenOrdersRequest) (*GetOpenOrdersResult, error) {
 	if req.PageSize < 0 {
-		return nil, errors.InvalidParameterError{Parameter: "req.PageSize", Reason: "cannot be less than 0"}
+		return nil, errors.InvalidParameterError{Parameter: "req.Limit", Reason: "cannot be less than 0"}
 	}
 	if req.PageSize > 200 {
-		return nil, errors.InvalidParameterError{Parameter: "req.PageSize", Reason: "cannot be greater than 200"}
+		return nil, errors.InvalidParameterError{Parameter: "req.Limit", Reason: "cannot be greater than 200"}
 	}
 
 	var (

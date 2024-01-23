@@ -2,6 +2,11 @@ package api
 
 import "encoding/json"
 
+const (
+	V1 = "v1/"
+	V2 = "v2/"
+)
+
 type (
 	Request struct {
 		ID        int64                  `json:"id"`
@@ -10,6 +15,7 @@ type (
 		Params    map[string]interface{} `json:"params"`
 		Signature string                 `json:"sig,omitempty"`
 		APIKey    string                 `json:"api_key,omitempty"`
+		Version   string                 `json:"version"`
 	}
 
 	BaseResponse struct {

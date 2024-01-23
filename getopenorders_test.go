@@ -51,7 +51,7 @@ func TestClient_GetOpenOrders_Error(t *testing.T) {
 				},
 			},
 			expectedErr: cdcerrors.InvalidParameterError{
-				Parameter: "req.PageSize",
+				Parameter: "req.Limit",
 				Reason:    "cannot be less than 0",
 			},
 		},
@@ -63,7 +63,7 @@ func TestClient_GetOpenOrders_Error(t *testing.T) {
 				},
 			},
 			expectedErr: cdcerrors.InvalidParameterError{
-				Parameter: "req.PageSize",
+				Parameter: "req.Limit",
 				Reason:    "cannot be greater than 200",
 			},
 		},

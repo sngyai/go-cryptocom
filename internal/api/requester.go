@@ -30,7 +30,12 @@ func (r Requester) doRequest(ctx context.Context, httpMethod string, body Reques
 		return 0, fmt.Errorf("failed to marshal request body: %w", err)
 	}
 
-	req, err := http.NewRequestWithContext(ctx, httpMethod, fmt.Sprintf("%s%s", r.BaseURL, method), bytes.NewBuffer(b))
+	version := V2
+	if body.Version != "" {
+		version = body.Version
+	}
+
+	req, err := http.NewRequestWithContext(ctx, httpMethod, fmt.Sprintf("%s%s%s", r.BaseURL, version, method), bytes.NewBuffer(b))
 	if err != nil {
 		return 0, fmt.Errorf("failed to create request: %w", err)
 	}

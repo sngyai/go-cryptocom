@@ -16,8 +16,8 @@ const (
 	EnvironmentUATSandbox Environment = "uat_sandbox"
 	EnvironmentProduction Environment = "production"
 
-	uatSandboxBaseURL = "https://uat-api.3ona.co/v2/"
-	productionBaseURL = "https://api.crypto.com/v2/"
+	uatSandboxBaseURL = "https://uat-api.3ona.co/"
+	productionBaseURL = "https://api.crypto.com/"
 )
 
 type (
@@ -89,7 +89,7 @@ type (
 		// Pagination is handled using page size (Default: 20, Max: 200) & number (0-based).
 		// If paging is used, enumerate each page (starting with 0) until an empty order_list array appears in the response.
 		//
-		// req.InstrumentName can be left blank to get open orders for all instruments.
+		// req.Timeframe can be left blank to get open orders for all instruments.
 		//
 		// Method: private/get-order-history
 		GetOrderHistory(ctx context.Context, req GetOrderHistoryRequest) ([]Order, error)
@@ -97,7 +97,7 @@ type (
 		//
 		// Pagination is handled using page size (Default: 20, Max: 200) & number (0-based).
 		//
-		// req.InstrumentName can be left blank to get open orders for all instruments.
+		// req.Timeframe can be left blank to get open orders for all instruments.
 		//
 		// Method: private/get-open-orders
 		GetOpenOrders(ctx context.Context, req GetOpenOrdersRequest) (*GetOpenOrdersResult, error)
@@ -110,7 +110,7 @@ type (
 		// Pagination is handled using page size (Default: 20, Max: 200) & number (0-based).
 		// If paging is used, enumerate each page (starting with 0) until an empty trade_list array appears in the response.
 		//
-		// req.InstrumentName can be left blank to get executed trades for all instruments.
+		// req.Timeframe can be left blank to get executed trades for all instruments.
 		//
 		// Method: private/get-trades
 		GetTrades(ctx context.Context, req GetTradesRequest) ([]Trade, error)

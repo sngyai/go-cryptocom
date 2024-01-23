@@ -15,10 +15,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/sngyai/go-cryptocom/internal/api"
-	"github.com/sngyai/go-cryptocom/internal/auth"
 	cdcexchange "github.com/sngyai/go-cryptocom"
 	cdcerrors "github.com/sngyai/go-cryptocom/errors"
+	"github.com/sngyai/go-cryptocom/internal/api"
+	"github.com/sngyai/go-cryptocom/internal/auth"
 	id_mocks "github.com/sngyai/go-cryptocom/internal/mocks/id"
 	signature_mocks "github.com/sngyai/go-cryptocom/internal/mocks/signature"
 	cdctime "github.com/sngyai/go-cryptocom/internal/time"
@@ -51,7 +51,7 @@ func TestClient_GetOrderHistory_Error(t *testing.T) {
 				},
 			},
 			expectedErr: cdcerrors.InvalidParameterError{
-				Parameter: "req.PageSize",
+				Parameter: "req.Limit",
 				Reason:    "cannot be less than 0",
 			},
 		},
@@ -63,7 +63,7 @@ func TestClient_GetOrderHistory_Error(t *testing.T) {
 				},
 			},
 			expectedErr: cdcerrors.InvalidParameterError{
-				Parameter: "req.PageSize",
+				Parameter: "req.Limit",
 				Reason:    "cannot be greater than 200",
 			},
 		},

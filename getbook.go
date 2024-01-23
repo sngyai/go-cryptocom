@@ -48,7 +48,7 @@ type (
 //
 // Method: public/get-book
 func (c *Client) GetBook(ctx context.Context, instrument string, depth int) (*BookResult, error) {
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, fmt.Sprintf("%s%s", c.requester.BaseURL, methodGetBook), nil)
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, fmt.Sprintf("%s%s%s", c.requester.BaseURL, api.V2, methodGetBook), nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)
 	}

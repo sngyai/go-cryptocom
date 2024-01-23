@@ -78,15 +78,15 @@ type (
 // Pagination is handled using page size (Default: 20, Max: 200) & number (0-based).
 // If paging is used, enumerate each page (starting with 0) until an empty withdrawal_list array appears in the response.
 //
-// req.InstrumentName can be left blank to get withdrawals for all instruments.
+// req.Timeframe can be left blank to get withdrawals for all instruments.
 //
 // Method: private/get-withdrawal-history
 func (c *Client) GetWithdrawalHistory(ctx context.Context, req GetWithdrawalHistoryRequest) ([]Withdrawal, error) {
 	if req.PageSize < 0 {
-		return nil, errors.InvalidParameterError{Parameter: "req.PageSize", Reason: "cannot be less than 0"}
+		return nil, errors.InvalidParameterError{Parameter: "req.Limit", Reason: "cannot be less than 0"}
 	}
 	if req.PageSize > 200 {
-		return nil, errors.InvalidParameterError{Parameter: "req.PageSize", Reason: "cannot be greater than 200"}
+		return nil, errors.InvalidParameterError{Parameter: "req.Limit", Reason: "cannot be greater than 200"}
 	}
 
 	var (

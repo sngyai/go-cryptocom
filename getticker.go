@@ -60,7 +60,7 @@ type (
 //
 // Method: public/get-ticker
 func (c *Client) GetTickers(ctx context.Context, instrument string) ([]Ticker, error) {
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, fmt.Sprintf("%s%s", c.requester.BaseURL, methodGetTicker), nil)
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, fmt.Sprintf("%s%s%s", c.requester.BaseURL, api.V2, methodGetTicker), nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)
 	}

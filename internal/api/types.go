@@ -3,7 +3,7 @@ package api
 import "encoding/json"
 
 const (
-	V1 = "v1/"
+	V1 = "exchange/v1/"
 	V2 = "v2/"
 )
 

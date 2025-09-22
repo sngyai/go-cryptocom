@@ -23,7 +23,7 @@ type (
 	// InstrumentResult is the result returned from the public/get-instruments API.
 	InstrumentResult struct {
 		// Instruments is a list of the returned instruments.
-		Instruments []Instrument `json:"instruments"`
+		Instruments []Instrument `json:"data"`
 	}
 
 	// Instrument represents details of a specific currency pair

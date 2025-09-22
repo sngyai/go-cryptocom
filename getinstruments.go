@@ -28,28 +28,23 @@ type (
 
 	// Instrument represents details of a specific currency pair
 	Instrument struct {
-		// InstrumentName represents the name of the instrument (e.g. BTC_USDT).
-		InstrumentName string `json:"instrument_name"`
-		// QuoteCurrency represents the quote currency (e.g. USDT).
-		QuoteCurrency string `json:"quote_currency"`
-		// BaseCurrency represents the base currency (e.g. BTC).
-		BaseCurrency string `json:"base_currency"`
-		// PriceDecimals is the maximum decimal places for specifying price.
-		PriceDecimals int `json:"price_decimals"`
-		// QuantityDecimals is the maximum decimal places for specifying quantity.
-		QuantityDecimals int `json:"quantity_decimals"`
-		// MarginTradingEnabled represents whether margin trading is enabled for the instrument.
-		MarginTradingEnabled bool `json:"margin_trading_enabled"`
-		// MinimumOrderSize represents the minimum order size for the instrument.
-		MarginTradingEnabled5X  bool   `json:"margin_trading_enabled_5x"`
-		MarginTradingEnabled10X bool   `json:"margin_trading_enabled_10x"`
-		MaxQuantity             string `json:"max_quantity"`
-		MinQuantity             string `json:"min_quantity"`
-		MaxPrice                string `json:"max_price"`
-		MinPrice                string `json:"min_price"`
-		LastUpdateDate          int64  `json:"last_update_date"`
-		QuantityTickSize        string `json:"quantity_tick_size"`
-		PriceTickSize           string `json:"price_tick_size"`
+		Symbol            string `json:"symbol"`
+		InstType          string `json:"inst_type"`
+		DisplayName       string `json:"display_name"`
+		BaseCcy           string `json:"base_ccy"`
+		QuoteCcy          string `json:"quote_ccy"`
+		QuoteDecimals     int    `json:"quote_decimals"`
+		QuantityDecimals  int    `json:"quantity_decimals"`
+		PriceTickSize     string `json:"price_tick_size"`
+		QtyTickSize       string `json:"qty_tick_size"`
+		MaxLeverage       string `json:"max_leverage"`
+		Tradable          bool   `json:"tradable"`
+		ExpiryTimestampMs int    `json:"expiry_timestamp_ms"`
+		BetaProduct       bool   `json:"beta_product"`
+		UnderlyingSymbol  string `json:"underlying_symbol"`
+		ContractSize      string `json:"contract_size"`
+		MarginBuyEnabled  bool   `json:"margin_buy_enabled"`
+		MarginSellEnabled bool   `json:"margin_sell_enabled"`
 	}
 )
 

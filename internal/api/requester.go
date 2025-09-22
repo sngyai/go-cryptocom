@@ -30,7 +30,7 @@ func (r Requester) doRequest(ctx context.Context, httpMethod string, body Reques
 		return 0, fmt.Errorf("failed to marshal request body: %w", err)
 	}
 
-	version := V2
+	version := V1
 	if body.Version != "" {
 		version = body.Version
 	}
